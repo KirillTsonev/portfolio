@@ -1,0 +1,22 @@
+.sidepanel
+    position: fixed
+    width: 340px
+    display: flex
+    justify-content: space-between
+    z-index: 3
+    top: 370px
+    left: -120px
+    align-items: center
+    transform: rotate(-90deg)
+    &__divider
+        width: 70px
+        height: 2px
+        background: #000
+    &__link
+        transform: rotate(90deg)
+        img
+            height: 23px
+            width: 23px
+            &:hover
+                transform: scale(1.3)
+                transition: 0.4s all

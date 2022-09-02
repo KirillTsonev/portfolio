@@ -1,0 +1,60 @@
+.skills
+    margin-top: 125px
+    .title_fz16
+        position: relative
+        text-align: center
+        @include circle
+        &::before
+            left: 50%
+            transform: translateX(-50%)
+    .title_fz36
+        text-align: center
+    &__grid
+        display: grid
+        grid-template: repeat(2, 270px) / repeat(4, 270px)
+        gap: 13px
+        margin: 60px 10px 0 10px
+    &__item
+        border: 1px solid black
+        padding: 30px
+        display: flex
+        flex-direction: column
+        justify-content: end
+        align-items: start
+        .title
+            margin-top: 20px
+    &__desc
+        font-size: 12px
+        line-height: 18px
+        margin-top: 15px
+        width: 211px
+        height: 94px
+    .divider
+        margin: 15px auto 0 auto
+    &__meter
+        margin-top: 120px
+        display: grid
+        grid-template: 70px 70px / repeat(3, 350px)
+        gap: 30px 45px
+        &-text 
+            display: flex
+            justify-content: space-between
+        &-bar 
+            position: relative
+            background-color: #d5d2ce
+            width: 350px
+            height: 14px
+            margin-top: 27px
+            border-radius: 5px
+            z-index: 1
+            span
+                position: relative
+                background-color: $main-color
+                height: 14px
+                z-index: 7
+                border-radius: 5px
+                display: block
+        .title_fz14
+            position: relative
+            @include circle
+            padding-left: 13px
