@@ -1,7 +1,6 @@
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector(".menu");
 const closeElem = document.querySelector(".menu__close");
-//const sectionLinks = document.querySelectorAll(".section-link")
 
 hamburger.addEventListener("click", () => {
     menu.classList.add("active");
@@ -30,8 +29,6 @@ const scrolling = (selector) => {
             upElem.classList.remove("animate__fadeIn");
         }
     });
-
-    // Scroll with requestAnimationFrame //
 
     let links = document.querySelectorAll("[href^='#']");
     let speed = 0.2;
@@ -64,16 +61,9 @@ const scrolling = (selector) => {
                 }
             }
 
-            console.log("asd")
+            console.log(this.hash)
         });
     });
 };
-
-// sectionLinks.forEach(a => {
-//     a.addEventListener("click", () => {
-//         console.log("aaa");
-//         //scrolling(a);
-//     });
-// });
 
 scrolling(".pageup");

@@ -43,6 +43,9 @@
 @media (max-width: 991px)
     .container
         max-width: 720px
+        &__promo
+            .title_fz48
+                font-size: 36px
         .about
             &__grid
                 grid-template: auto auto / 300px 410px
@@ -107,12 +110,14 @@
             display: none
 
 @media (max-width: 767px)
+    .container__promo
+        max-width: 300px
+        .title_fz48
+            width: 300px
+            font-size: 24px
+            line-height: 36px
     .container
         max-width: 540px
-        .title_fz48
-            width: 320px
-            font-size: 28px
-            line-height: 36px
         .about
             &__grid
                 grid-template: auto auto / 530px
