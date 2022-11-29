@@ -1,6 +1,8 @@
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector(".menu");
 const closeElem = document.querySelector(".menu__close");
+const portfolioHeadings = document.querySelectorAll(".portfolio__heading");
+const portfolioProjects = document.querySelectorAll(".portfolio__project");
 
 hamburger.addEventListener("click", () => {
     menu.classList.add("active");
@@ -65,5 +67,28 @@ const scrolling = (selector) => {
         });
     });
 };
+
+// portfolioProjects.forEach(a => {
+//     if ([...portfolioProjects].indexOf(a) === index) {
+//         console.log([...portfolioProjects].indexOf(a) === index)
+//         // a.classList.add("active")
+//     }
+// })
+
+function setActiveProject(a) {
+    const index = [...portfolioHeadings].indexOf(a)
+
+    portfolioProjects.forEach(a => {
+        a.classList.remove("active")
+        
+        if ([...portfolioProjects].indexOf(a) === index) {
+            a.classList.add("active")
+        }
+    })
+}
+
+portfolioHeadings.forEach(a => {
+    a.addEventListener("click", () => setActiveProject(a))
+})
 
 scrolling(".pageup");
