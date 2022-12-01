@@ -27,22 +27,14 @@
         overflow: hidden
     &__headings-inner
         display: flex
-        // justify-content: space-between
-        // width: 1500px
         transition: all .4s
     &__heading
         cursor: pointer
         user-select: none
         text-align: center
         width: 208px
-    &__prev
-        z-index: 10
-        cursor: pointer
-        user-select: none
-        width: 50px
-        text-align: center
-    &__next
-        z-index: 10
+    &__prev, &__next
+        font-size: 25px
         cursor: pointer
         user-select: none
         width: 50px
@@ -76,3 +68,6 @@
 .active
     display: block
     animation: fadeIn 1.5s 1
+
+.activeHeading
+    color: $main-color

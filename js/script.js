@@ -88,6 +88,14 @@ function setActiveProject(a) {
             a.classList.add("active");
         }
     })
+
+    portfolioHeadings.forEach(a => {
+        a.classList.remove("activeHeading");
+        
+        if ([...portfolioHeadings].indexOf(a) === index) {
+            a.classList.add("activeHeading");
+        }
+    })
 }
 
 portfolioHeadings.forEach(a => {
@@ -123,7 +131,7 @@ next.addEventListener('click', () => {
     }
 });
 
-prev.addEventListener('click', () => {
+function moveRight() {
     if (offset === 0) {
         offset = width * (headings.length - 5);
     } else {
@@ -137,4 +145,43 @@ prev.addEventListener('click', () => {
     } else {
         slideCount--;
     }
+}
+
+prev.addEventListener('click', () => {
+    moveRight()
 });
+
+//automatic sliding
+
+let i = 0
+
+setInterval(() => {
+    moveRight()
+    automaticHeaidng()
+}, 3000);
+
+function automaticHeaidng() {
+    if (i === headings.length - 1) {
+        i = 0
+    }
+
+    i++
+
+    portfolioProjects.forEach(a => {
+        a.classList.remove("active");
+        
+        if ([...portfolioProjects].indexOf(a) === i) {
+            a.classList.add("active");
+        }
+    })
+
+    portfolioHeadings.forEach(a => {
+        a.classList.remove("activeHeading");
+        
+        if ([...portfolioHeadings].indexOf(a) === i) {
+            a.classList.add("activeHeading");
+        }
+    })
+    console.log(i)
+}
+
