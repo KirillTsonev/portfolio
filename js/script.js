@@ -1,8 +1,6 @@
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector(".menu");
 const closeElem = document.querySelector(".menu__close");
-const portfolioHeadings = document.querySelectorAll(".portfolio__heading");
-const portfolioProjects = document.querySelectorAll(".portfolio__project");
 
 hamburger.addEventListener("click", () => {
     menu.classList.add("active");
@@ -75,20 +73,68 @@ const scrolling = (selector) => {
 //     }
 // })
 
+//headings
+
+const portfolioHeadings = document.querySelectorAll(".portfolio__heading");
+const portfolioProjects = document.querySelectorAll(".portfolio__project");
+
 function setActiveProject(a) {
-    const index = [...portfolioHeadings].indexOf(a)
+    const index = [...portfolioHeadings].indexOf(a);
 
     portfolioProjects.forEach(a => {
-        a.classList.remove("active")
+        a.classList.remove("active");
         
         if ([...portfolioProjects].indexOf(a) === index) {
-            a.classList.add("active")
+            a.classList.add("active");
         }
     })
 }
 
 portfolioHeadings.forEach(a => {
-    a.addEventListener("click", () => setActiveProject(a))
+    a.addEventListener("click", () => setActiveProject(a));
 })
 
 scrolling(".pageup");
+
+//slider
+const inner = document.querySelector(".portfolio__headings-inner")
+const prev = document.querySelector(".portfolio__prev");
+const next = document.querySelector(".portfolio__next");
+const headings = document.querySelectorAll(".portfolio__heading")
+let slideCount = 0;
+let offset = 0;
+let width = 208;
+
+inner.style.width = 208 * headings.length + 'px';
+
+next.addEventListener('click', () => {
+    if (offset === (width * (headings.length - 5))) {
+        offset = 0;
+    } else {
+        offset += width; 
+    }
+
+    inner.style.transform = `translateX(-${offset}px)`;
+
+    if (slideCount === headings.length) {
+        slideCount = 1;
+    } else {
+        slideCount++;
+    }
+});
+
+prev.addEventListener('click', () => {
+    if (offset === 0) {
+        offset = width * (headings.length - 5);
+    } else {
+        offset -= width;
+    }
+
+    inner.style.transform = `translateX(-${offset}px)`;
+
+    if (slideCount === 1) {
+        slideCount = headings.length;
+    } else {
+        slideCount--;
+    }
+});
