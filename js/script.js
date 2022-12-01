@@ -17,6 +17,8 @@ closeElem.addEventListener("click", () => {
 //     lines[i].style.width = item.innerHTML;
 // });
 
+//scrolling
+
 const scrolling = (selector) => {
     const upElem = document.querySelector(selector);
 
@@ -66,106 +68,17 @@ const scrolling = (selector) => {
     });
 };
 
-// portfolioProjects.forEach(a => {
-//     if ([...portfolioProjects].indexOf(a) === index) {
-//         console.log([...portfolioProjects].indexOf(a) === index)
-//         // a.classList.add("active")
-//     }
-// })
+scrolling(".pageup");
 
 //headings
 
 const portfolioHeadings = document.querySelectorAll(".portfolio__heading");
 const portfolioProjects = document.querySelectorAll(".portfolio__project");
+let i = 0;
+
 
 function setActiveProject(a) {
-    const index = [...portfolioHeadings].indexOf(a);
-
-    portfolioProjects.forEach(a => {
-        a.classList.remove("active");
-        
-        if ([...portfolioProjects].indexOf(a) === index) {
-            a.classList.add("active");
-        }
-    })
-
-    portfolioHeadings.forEach(a => {
-        a.classList.remove("activeHeading");
-        
-        if ([...portfolioHeadings].indexOf(a) === index) {
-            a.classList.add("activeHeading");
-        }
-    })
-}
-
-portfolioHeadings.forEach(a => {
-    a.addEventListener("click", () => setActiveProject(a));
-})
-
-scrolling(".pageup");
-
-//slider
-const inner = document.querySelector(".portfolio__headings-inner")
-const prev = document.querySelector(".portfolio__prev");
-const next = document.querySelector(".portfolio__next");
-const headings = document.querySelectorAll(".portfolio__heading")
-let slideCount = 0;
-let offset = 0;
-let width = 208;
-
-inner.style.width = 208 * headings.length + 'px';
-
-next.addEventListener('click', () => {
-    if (offset === (width * (headings.length - 5))) {
-        offset = 0;
-    } else {
-        offset += width; 
-    }
-
-    inner.style.transform = `translateX(-${offset}px)`;
-
-    if (slideCount === headings.length) {
-        slideCount = 1;
-    } else {
-        slideCount++;
-    }
-});
-
-function moveRight() {
-    if (offset === 0) {
-        offset = width * (headings.length - 5);
-    } else {
-        offset -= width;
-    }
-
-    inner.style.transform = `translateX(-${offset}px)`;
-
-    if (slideCount === 1) {
-        slideCount = headings.length;
-    } else {
-        slideCount--;
-    }
-}
-
-prev.addEventListener('click', () => {
-    moveRight()
-});
-
-//automatic sliding
-
-let i = 0
-
-setInterval(() => {
-    moveRight()
-    automaticHeaidng()
-}, 3000);
-
-function automaticHeaidng() {
-    if (i === headings.length - 1) {
-        i = 0
-    }
-
-    i++
+    i = [...portfolioHeadings].indexOf(a);
 
     portfolioProjects.forEach(a => {
         a.classList.remove("active");
@@ -182,6 +95,125 @@ function automaticHeaidng() {
             a.classList.add("activeHeading");
         }
     })
-    console.log(i)
 }
 
+portfolioHeadings.forEach(a => {
+    a.addEventListener("click", () => setActiveProject(a));
+})
+
+//slider
+
+const inner = document.querySelector(".portfolio__headings-inner")
+const prev = document.querySelector(".portfolio__prev");
+const next = document.querySelector(".portfolio__next");
+const headings = document.querySelectorAll(".portfolio__heading")
+let slideCount = 1;
+let offset = 0;
+let width = 208;
+
+inner.style.width = 208 * headings.length + 'px';
+
+function prevProject() {
+    if (offset === 0) {
+        offset = width * (headings.length - 5);
+    } else {
+        offset -= width;
+    }
+
+    inner.style.transform = `translateX(-${offset}px)`;
+
+    if (slideCount === 0) {
+        slideCount = headings.length - 1;
+    } else {
+        slideCount--;
+    }
+}
+
+function nextProject() {
+    if (offset === (width * (headings.length - 5))) {
+        offset = 0;
+    } else {
+        offset += width; 
+    }
+
+    inner.style.transform = `translateX(-${offset}px)`;
+
+    if (slideCount === headings.length - 1) {
+        slideCount = 0;
+    } else {
+        slideCount++;
+    }
+}
+
+prev.addEventListener('click', () => {
+    prevProject();
+});
+
+next.addEventListener('click', () => {
+    nextProject();
+});
+
+function autoSlides() {
+    autoSlidesInt = setInterval(() => {
+        i++;
+        automaticHeaidng();
+        automaticProject();
+        console.log(i)
+        console.log(slideCount)
+    }, 3000);
+}
+
+autoSlides()
+
+function automaticHeaidng() {
+    if (i === headings.length) {
+        i = 0;
+        slideCount = 0;
+    }
+
+    if (i === 0 || i - slideCount === 4) {
+        nextProject();
+    }
+
+    portfolioHeadings.forEach(a => {
+        a.classList.remove("activeHeading");
+        
+        if ([...portfolioHeadings].indexOf(a) === i) {
+            a.classList.add("activeHeading");
+        }
+    })
+}
+
+function automaticProject() {
+    if (i === headings.length) {
+        i = 0;
+    }
+
+    portfolioProjects.forEach(a => {
+        a.classList.remove("active");
+        
+        if ([...portfolioProjects].indexOf(a) === i) {
+            a.classList.add("active");
+        }
+    })
+}
+
+document.querySelector(".portfolio__nav").addEventListener("mouseenter", () => {
+    clearInterval(autoSlidesInt);
+});
+
+document.querySelector(".portfolio__nav").addEventListener("mouseleave", () => {
+    autoSlides();
+});
+
+portfolioProjects.forEach(a => {
+    a.addEventListener("mouseenter", () => {
+        clearInterval(autoSlidesInt);   
+    });
+})
+
+portfolioProjects.forEach(a => {
+    a.addEventListener("mouseleave", () => {
+        autoSlides();
+    });
+})
