@@ -94,12 +94,16 @@ scrolling(".pageup");
 
 
 
-const themeSwitch = document.querySelector(".switch");
-const ball = document.querySelector(".switch__ball");
+const themeSwitch = document.querySelectorAll(".switch");
+const ball = document.querySelectorAll(".switch__ball");
 
-themeSwitch.addEventListener("click", () => {
-    ball.classList.toggle("switch__ball-up");
-    toggleTheme()
+themeSwitch.forEach(a => {
+    a.addEventListener("click", () => {
+        ball.forEach(a => {
+            a.classList.toggle("switch__ball-up");
+        })    
+        toggleTheme();
+    })   
 });
 
 function toggleTheme() { 

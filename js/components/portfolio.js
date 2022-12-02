@@ -161,8 +161,8 @@ function portfolio() {
     })
 
     document.querySelector(".slider__button").addEventListener("click", () => {
-        document.querySelector(".portfolio__container").style.transform = `translateY(-1010px)`;
-        document.querySelector(".portfolio").style.height = "1300px";
+        document.querySelector(".portfolio__container").style.transform = `translateY(-900px)`;
+        document.querySelector(".portfolio").style.height = "1280px";
     });
 
     document.querySelector(".tiles__button").addEventListener("click", () => {

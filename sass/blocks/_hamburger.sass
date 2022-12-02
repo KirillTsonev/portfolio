@@ -7,6 +7,7 @@
     flex-direction: column
     justify-content: space-between
     cursor: pointer
+    z-index: 10
     span
         display: block
         height: 4px
@@ -67,7 +68,7 @@
             color: white
             text-decoration: none
     &__social
-        width: 100px
+        width: 250px
         position: absolute
         display: flex
         justify-content: space-between
@@ -81,6 +82,8 @@
             &:hover
                 transform: scale(1.3)
                 transition: .5s all
+        .switch__icon
+            transform: rotate(0deg)
     &__overlay
         position: fixed
         top: 0
