@@ -105,8 +105,8 @@ function toggleTheme() {
     // Change the value of href attribute  
     // to change the css sheet. 
     if (theme.getAttribute('href') === 'css/style.min.css') { 
-        theme.setAttribute('href', 'css/darkTheme.css'); 
+        theme.setAttribute('href', 'css/dark.min.css'); 
     } else { 
-    theme.setAttribute('href', 'css/style.min.css'); 
+        theme.setAttribute('href', 'css/style.min.css'); 
     } 
 } 
