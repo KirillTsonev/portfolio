@@ -1,13 +1,17 @@
 .about
+    position: relative
+    color: var(--text-color)
+    background: var(--bg-color)
     &__grid
         display: grid
         grid-template: 243px 357px / 400px 570px
         column-gap: 90px
-        margin-top: 120px
+        padding-top: 120px
         justify-content: right
     .title_fz16
         position: relative
         padding-left: 12px
+        z-index: 1
         @include circle
     &__subgrid
         display: grid
@@ -38,7 +42,10 @@
         position: relative
         padding-left: 15px
         padding-top: 5px
+        z-index: 1
         @include circle
+        svg
+            fill: var(--text-color)
         &_right
             padding-left: 17px
     &__image

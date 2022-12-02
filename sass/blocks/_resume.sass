@@ -1,8 +1,11 @@
 .resume
-    margin-top: 120px
+    padding-top: 120px
+    background: var(--bg-color)
+    color: var(--text-color)
     .title_fz16
         position: relative
         text-align: center
+        z-index: 1
         @include circle
         &::before
             top: -5px
@@ -41,14 +44,14 @@
                 position: absolute
                 top: -16px
                 left: 0
-                background-color: black
+                background-color: var(--text-color)
     &__item
         position: relative
         &::before
             content: ""
             height: 2px
             width: 45px
-            background-color: black
+            background-color: var(--text-color)
             position: absolute
             top: 63px
         &-head
@@ -63,11 +66,13 @@
             position: absolute
             top: 46px
             left: 45px
+            z-index: 1
             @include circle
-            img
+            svg
                 position: absolute
                 top: 14px
                 left: 17px
+                fill: var(--text-color)
         &-location
             font-size: 12px
             line-height: 18px

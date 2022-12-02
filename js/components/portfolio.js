@@ -161,13 +161,13 @@ function portfolio() {
     })
 
     document.querySelector(".slider__button").addEventListener("click", () => {
-        document.querySelector(".portfolio__container").style.transform = `translateY(-950px)`;
-        document.querySelector(".portfolio").style.height = "1175px";
+        document.querySelector(".portfolio__container").style.transform = `translateY(-1010px)`;
+        document.querySelector(".portfolio").style.height = "1300px";
     });
 
     document.querySelector(".tiles__button").addEventListener("click", () => {
         document.querySelector(".portfolio__container").style.transform = `translateY(0px)`;
-        document.querySelector(".portfolio").style.height = "930px";
+        document.querySelector(".portfolio").style.height = "1060px";
     });
 
     document.querySelector(".tiles__button").addEventListener("click", () => {

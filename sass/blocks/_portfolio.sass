@@ -1,11 +1,14 @@
 .portfolio
     padding: 10px
-    margin-top: 110px
-    height: 930px
+    padding-top: 110px
+    height: 1060px
     overflow: hidden
+    background: var(--bg-color)
+    color: var(--text-color)
     .title_fz16
         position: relative
         text-align: center
+        z-index: 1
         @include circle
         &::before
             top: -5px
@@ -112,7 +115,7 @@
     color: $main-color
 
 .tiles
-    margin-top: 240px
+    margin-top: 340px
     &__button
         cursor: pointer
         background-color: $main-color
