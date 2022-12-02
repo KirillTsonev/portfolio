@@ -803,29 +803,29 @@
 
                         <div class="title title_fz14">Or leave your information and I'll contact you:</div>
 
-                        <form action="#" class="contacts__form">
+                        <form id="contact-form" class="contacts__form">
                             <div class="contacts__input">
-                                <input required name="name" id="name" type="text">
+                                <input required name="user_name" id="name" type="text">
                                 <label for="name">Your name</label>
                             </div>
 
                             <div class="contacts__input">
-                                <input required name="email" id="email" type="email">
+                                <input required name="user_email" id="email" type="email">
                                 <label for="email">Your email</label>
                             </div>
 
                             <div class="contacts__textarea">
-                                <textarea name="text" id="text"></textarea>
+                                <textarea name="message" id="text"></textarea>
                                 <label for="text">Your message</label>
                             </div>
 
                             <div class="contacts__triggers">
-                                <button class="button">Send message</button>
+								<input type="submit" id="send" class="button" value="Send">
                                 
                                 <div class="contacts__policy">
                                     <input required type="checkbox">
 
-                                    <span>I agree with <a href="policy.html" target="_blank">Privacy Policy</a></span>
+                                    <span>I agree with <a href="https://www.privacypolicies.com/live/9e42bd81-db97-405b-bb12-f233d4863de5" target="_blank">Privacy Policy</a></span>
                                 </div>
                             </div>
                         </form>
@@ -836,6 +836,25 @@
 
         <a href="#up" class="pageup"><img class="up" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Eo_circle_green_arrow-up.svg"></a>
 
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
         <script type="module" src="js/script.js"></script>
+		<script type="text/javascript">
+			(function() {
+				emailjs.init('zoirKpZ6PD6Kwmysx');
+			})();
+		</script>
+		<script type="text/javascript">
+			window.onload = function() {
+				document.getElementById('contact-form').addEventListener('submit', function(event) {
+					event.preventDefault();
+					emailjs.sendForm('contact_service', 'contact_form', this)
+						.then(function() {
+							console.log('SUCCESS!');
+						}, function(error) {
+							console.log('FAILED...', error);
+						});
+				});
+			}
+		</script>
     </body>
 </html>
