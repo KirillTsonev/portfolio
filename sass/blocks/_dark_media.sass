@@ -1,0 +1,232 @@
+@media (max-width: 1200px)
+    .container
+        max-width: 960px
+    .sidepanel
+        display: none
+    .about
+        &__grid
+            grid-template: auto auto / 400px 520px
+            column-gap: 40px
+        &__subgrid
+            grid-template: auto auto / 240px 240px
+            gap: 20px 30px
+    .resume
+        &__wrapper
+            grid-template-columns: 425px 425px
+            padding: 60px 30px 0 30px
+            column-gap: 60px
+    .skills
+        &__grid
+            grid-template: repeat(3, 270px) / repeat(3, 270px)
+            justify-content: center
+    .portfolio
+        height: 6050px
+        .container
+            width: 900px
+        .slider
+            &__nav
+                display: none
+            &__project
+                display: block
+            &__image
+                width: 437px
+                height: 437px
+            &__info
+                grid-template: 218px 218px / 437px 437px
+                column-gap: 26px
+            &__button
+                display: none
+        .tiles
+            display: none
+    .contacts
+        margin: 120px 0 90px 0
+        &__grid
+            margin: 0 25px
+            grid-template-columns: 300px 585px
+        &__image
+            width: 300px
+
+@media (max-width: 991px)
+    .container
+        max-width: 720px
+        &__promo
+            .title_fz48
+                font-size: 36px
+        .about
+            &__grid
+                grid-template: auto auto / 300px 410px
+                column-gap: 20px
+                .title_fz36
+                    font-size: 24px
+            &__image
+                width: 300px
+            &__subgrid
+                grid-template: auto auto / 200px 200px
+                gap: 20px 15px
+    .resume
+        &__wrapper
+            grid-template: auto / 350px 350px
+            padding: 60px 10px 0 10px
+            column-gap: 20px
+        &__item
+            &::before
+                width: 30px
+            &-head
+                padding: 45px 0 0 85px
+                position: relative
+            &-body
+                padding-left: 28px
+            &-icon
+                position: absolute
+                top: 46px
+                left: 30px
+                @include circle
+                img
+                    position: absolute
+                    top: 14px
+                    left: 17px
+    .skills
+        &__grid
+            grid-template: repeat(4, 270px) / repeat(2, 270px)
+    .portfolio
+        height: 5100px
+        .container
+            width: 740px
+        .slider
+            &__image
+                width: 350px
+                height: 350px
+            &__info
+                grid-template: 175px 175px / 350px 350px
+                column-gap: 20px
+    .contacts
+        &__grid
+            margin: 0 15px
+            grid-template-columns: 585px
+            justify-content: center
+        &__image
+            display: none
+
+@media (max-width: 767px)
+    .container__promo
+        max-width: 300px
+        .title_fz48
+            width: 300px
+            font-size: 24px
+            line-height: 36px
+    .container
+        max-width: 540px
+        .about
+            &__grid
+                grid-template: auto auto / 530px
+                row-gap: 30px
+                padding: 0 10px
+                .title_fz36
+                    font-size: 24px
+                    text-align: center
+                .title_fz16
+                    text-align: center
+                    &:before
+                        left: 50%
+                        transform: translateX(-50%)
+                .divider
+                    margin: 0 auto
+            &__image
+                width: 280px
+                margin: 0 auto
+            &__subgrid
+                grid-template: auto / 170px 170px 170px
+                column-gap: 10px
+        .resume
+            &__wrapper
+                grid-template: auto auto / 530px
+                row-gap: 20px
+        .contacts
+            &__grid
+                margin: 0 15px
+                grid-template-columns: 540px
+                justify-content: center
+            &__form
+                grid-template: 45px 190px 45px / 250px 250px
+                justify-content: space-between
+                row-gap: 32px
+    .portfolio
+        height: 4150px
+        .container
+            width: 540px
+        .slider
+            &__image
+                width: 265px
+                height: 265px
+            &__info
+                grid-template: 132px 132px / 265px 265px
+                column-gap: 10px
+            &__description
+                font-size: 14px
+
+@media (max-width: 575px)
+    .hamburger
+        top: 10px
+        right: 10px
+    .menu
+        &__block
+            width: 320px
+            padding-left: 20px
+    .container
+        width: 100%
+        padding: 0 10px
+        .title_fz48
+            width: 280px
+            font-size: 28px
+            line-height: 36px
+        .title_fz36
+            line-height: 40px
+            font-size: 24px
+        .about
+            &__grid
+                grid-template: auto auto / 280px
+                row-gap: 50px
+                padding: 0 10px
+                justify-self: center
+            &__image
+                width: 280px
+            &__subgrid
+                grid-template: repeat(3, auto) / 280px
+                gap: 20px 50px
+            &__desc
+                width: 280px
+        .resume
+            &__wrapper
+                grid-template: auto auto / 280px
+                row-gap: 30px
+        .skills
+            &__grid
+                grid-template: repeat(7, 270px) / 270px
+        .contacts
+            &__grid
+                margin: 0 10px
+                grid-template-columns: 300px
+            &__form
+                grid-template: 45px 45px 190px / 300px
+                justify-content: space-between
+                row-gap: 32px
+            &__triggers
+                grid-template: 45px 45px / 300px
+                grid-column: unset
+            &__textarea
+                grid-column: unset
+    .portfolio
+        height: 5950px
+        .container
+            width: 300px
+        .slider
+            &__image
+                width: 265px
+                height: 265px
+            &__info
+                grid-template: 265px minmax(0, auto) / 265px
+                row-gap: 10px
+            &__description
+                font-size: 14px
+            &__text
+                min-height: 20px
