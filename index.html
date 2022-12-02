@@ -830,6 +830,9 @@
                             </div>
                         </form>
                     </div>
+                    <div class="mail__success">Mail succesfully sent!</div>
+                    <div class="mail__failure">Mail not sent.</div>
+                    <div class="mail__limit">Mail sending limit reached.</div>
                 </div>
             </div>
         </section>
@@ -844,15 +847,31 @@
 			})();
 		</script>
 		<script type="text/javascript">
+            let mailCounter = 0;
+
 			window.onload = function() {
 				document.getElementById('contact-form').addEventListener('submit', function(event) {
-					event.preventDefault();
-					emailjs.sendForm('contact_service', 'contact_form', this)
+                    if (localStorage.getItem("mailCounter") < 5) {
+                        event.preventDefault();
+                        mailCounter++;
+                        localStorage.setItem("mailCounter", mailCounter);
+                        emailjs.sendForm('contact_service', 'contact_form', this)
 						.then(function() {
-							console.log('SUCCESS!');
+                            document.querySelector(".mail__success").classList.toggle("mailActive");
+                            setTimeout(() => {
+                                document.querySelector(".mail__success").classList.toggle("mailActive");
+                            }, 5000);
 						}, function(error) {
-							console.log('FAILED...', error);
-						});
+                            document.querySelector(".mail__failure").classList.toggle("mailActive");
+                            setTimeout(() => {
+                                document.querySelector(".mail__failure").classList.toggle("mailActive");
+                            }, 5000);
+						})
+                        .then(document.getElementById('contact-form').reset());
+                    } else {
+                        event.preventDefault();
+                        document.querySelector(".mail__limit").classList.add("mailActive");
+                    }
 				});
 			}
 		</script>
