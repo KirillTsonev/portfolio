@@ -7,9 +7,9 @@ function portfolio() {
     const portfolioProjects = document.querySelectorAll(".slider__project");
     const inner = document.querySelector(".slider__headings-inner");
     const counter = document.querySelector(".slider__counter");
+    const width = 208;
     let slideCount = 1;
     let offset = 0;
-    let width = 208;
     let i = 0;
 
     inner.style.width = 208 * portfolioHeadings.length + 'px';
@@ -75,9 +75,11 @@ function portfolio() {
 
     function autoSlides() {
         const autoSlidesInt = setInterval(() => {
-            i++;
-            automaticHeaidng();
-            automaticProject();
+            if (screen.width > 1200) {
+                i++;
+                automaticHeaidng();
+                automaticProject();
+            }
         }, 3000);
 
         portfolioProjects.forEach(a => {
