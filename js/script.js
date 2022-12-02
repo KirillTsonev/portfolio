@@ -71,7 +71,7 @@ const scrolling = (selector) => {
                 }
             }
 
-            console.log(this.hash)
+            console.log(this.hash);
         });
     });
 };
@@ -84,9 +84,29 @@ scrolling(".pageup");
 
 
 
-const themeSwitch = document.querySelector(".switch")
-const ball = document.querySelector(".switch__ball")
+const themeSwitch = document.querySelector(".switch");
+const ball = document.querySelector(".switch__ball");
+const containers = document.querySelectorAll(".container");
 
 themeSwitch.addEventListener("click", () => {
-    ball.classList.toggle("switch__ball-up")
+    ball.classList.toggle("switch__ball-up");
+    // containers.forEach(a => {
+    //     a.classList.toggle(".darkTheme");
+    // })
+    toggleTheme()
 });
+
+function toggleTheme() { 
+    // Obtains an array of all <link> 
+    // elements. 
+    // Select your element using indexing. 
+    const theme = document.getElementsByTagName('link')[1]; 
+    
+    // Change the value of href attribute  
+    // to change the css sheet. 
+    if (theme.getAttribute('href') === 'css/style.min.css') { 
+        theme.setAttribute('href', 'css/darkTheme.css'); 
+    } else { 
+    theme.setAttribute('href', 'css/style.min.css'); 
+    } 
+} 
