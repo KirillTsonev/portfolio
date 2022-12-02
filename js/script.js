@@ -1,8 +1,22 @@
 import portfolio from "./components/portfolio.js";
 
 window.addEventListener('DOMContentLoaded', function() {
+    const theme = document.getElementsByTagName('link')[1]; 
+        theme.setAttribute('href', 'css/dark.min.css'); 
+        theme.setAttribute('href', 'css/light.min.css'); 
+        
     portfolio();
 });
+
+
+
+
+
+
+
+
+
+
 
 
 
