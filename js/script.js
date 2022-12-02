@@ -72,8 +72,8 @@ scrolling(".pageup");
 
 //headings
 
-const portfolioHeadings = document.querySelectorAll(".portfolio__heading");
-const portfolioProjects = document.querySelectorAll(".portfolio__project");
+const portfolioHeadings = document.querySelectorAll(".slider__heading");
+const portfolioProjects = document.querySelectorAll(".slider__project");
 let i = 0;
 
 
@@ -81,10 +81,10 @@ function setActiveProject(a) {
     i = [...portfolioHeadings].indexOf(a);
 
     portfolioProjects.forEach(a => {
-        a.classList.remove("active");
+        a.classList.remove("activeProject");
         
         if ([...portfolioProjects].indexOf(a) === i) {
-            a.classList.add("active");
+            a.classList.add("activeProject");
         }
     })
 
@@ -105,20 +105,19 @@ portfolioHeadings.forEach(a => {
 
 //slider
 
-const inner = document.querySelector(".portfolio__headings-inner");
-const prev = document.querySelector(".portfolio__prev");
-const next = document.querySelector(".portfolio__next");
-const headings = document.querySelectorAll(".portfolio__heading");
+const inner = document.querySelector(".slider__headings-inner");
+const prev = document.querySelector(".slider__prev");
+const next = document.querySelector(".slider__next");
 let slideCount = 1;
 let offset = 0;
 let width = 208;
-const counter = document.querySelector(".portfolio__counter");
+const counter = document.querySelector(".slider__counter");
 
-inner.style.width = 208 * headings.length + 'px';
+inner.style.width = 208 * portfolioHeadings.length + 'px';
 
 function prevProject() {
     if (offset === 0) {
-        offset = width * (headings.length - 5);
+        offset = width * (portfolioHeadings.length - 5);
     } else {
         offset -= width;
     }
@@ -126,14 +125,14 @@ function prevProject() {
     inner.style.transform = `translateX(-${offset}px)`;
 
     if (slideCount === 0) {
-        slideCount = headings.length - 1;
+        slideCount = portfolioHeadings.length - 1;
     } else {
         slideCount--;
     }
 }
 
 function nextProject() {
-    if (offset === (width * (headings.length - 5))) {
+    if (offset === (width * (portfolioHeadings.length - 5))) {
         offset = 0;
     } else {
         offset += width; 
@@ -141,7 +140,7 @@ function nextProject() {
 
     inner.style.transform = `translateX(-${offset}px)`;
 
-    if (slideCount === headings.length - 1) {
+    if (slideCount === portfolioHeadings.length - 1) {
         slideCount = 0;
     } else {
         slideCount++;
@@ -167,7 +166,7 @@ function autoSlides() {
 autoSlides()
 
 function automaticHeaidng() {
-    if (i === headings.length) {
+    if (i === portfolioHeadings.length) {
         i = 0;
         slideCount = 0;
     }
@@ -188,26 +187,26 @@ function automaticHeaidng() {
 }
 
 function automaticProject() {
-    if (i === headings.length) {
+    if (i === portfolioHeadings.length) {
         i = 0;
     }
 
     portfolioProjects.forEach(a => {
-        a.classList.remove("active");
+        a.classList.remove("activeProject");
         
         if ([...portfolioProjects].indexOf(a) === i) {
-            a.classList.add("active");
+            a.classList.add("activeProject");
         }
     })
 
     counter.innerHTML = `${i + 1}/${portfolioProjects.length}`
 }
 
-document.querySelector(".portfolio__nav").addEventListener("mouseenter", () => {
+document.querySelector(".slider__nav").addEventListener("mouseenter", () => {
     clearInterval(autoSlidesInt);
 });
 
-document.querySelector(".portfolio__nav").addEventListener("mouseleave", () => {
+document.querySelector(".slider__nav").addEventListener("mouseleave", () => {
     autoSlides();
 });
 
@@ -224,3 +223,36 @@ portfolioProjects.forEach(a => {
 })
 
 counter.innerHTML = `${i + 1}/${portfolioProjects.length}`
+
+// 
+//
+//
+
+const seeAll = document.querySelector(".slider__button");
+const seeSlider = document.querySelector(".tiles__button");
+const portfolioContainer = document.querySelector(".portfolio__container");
+const cards = document.querySelectorAll(".tiles__card-inner");
+
+seeAll.addEventListener("click", () => {
+    portfolioContainer.style.transform = `translateY(-950px)`;
+    document.querySelector(".portfolio").style.height = "1175px";
+    // document.querySelector(".portfolio").style.minHeight = "930px";
+    // document.querySelector(".portfolio").overflow = "visible"
+});
+
+seeSlider.addEventListener("click", () => {
+    portfolioContainer.style.transform = `translateY(0px)`;
+    document.querySelector(".portfolio").style.height = "930px";
+});
+
+cards.forEach(a => {
+    a.addEventListener("mouseenter", () => {
+        a.style.transform = `translateX(-261px)`;
+    });
+})
+
+cards.forEach(a => {
+    a.addEventListener("mouseleave", () => {
+        a.style.transform = `translateX(0px)`;
+    });
+})
