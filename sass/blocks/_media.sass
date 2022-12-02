@@ -82,9 +82,6 @@
     .skills
         &__grid
             grid-template: repeat(4, 270px) / repeat(2, 270px)
-        &__meter
-            grid-template: repeat(3, 70px) / repeat(2, 280px)
-            gap: 45px 30px
     .portfolio
         &__grid
             grid-template: repeat(4, 280px) / 280px 280px
@@ -94,13 +91,6 @@
             .horizontal
                 grid-row: 4 / 5
                 grid-column: 1 / 3
-    .price
-        &__grid
-            margin: 60px 20px 0 20px
-            display: grid
-            grid-template: repeat(3, 50px) / 320px 320px
-            justify-content: space-between
-            row-gap: 25px
     .contacts
         &__grid
             margin: 0 15px
@@ -143,22 +133,9 @@
             &__wrapper
                 grid-template: auto auto / 530px
                 row-gap: 20px
-        .skills
-            &__meter
-                grid-template: repeat(3, 70px) / repeat(2, 250px)
-                gap: 45px 30px
-                &-bar
-                    width: 250px
         .portfolio
             &__grid
                 grid-template: repeat(4, 270px) / 270px 270px
-        .price
-            &__grid
-                margin: 60px 20px 0 20px
-                display: grid
-                grid-template: repeat(6, 50px) / 366px
-                justify-content: center
-                row-gap: 25px
         .contacts
             &__grid
                 margin: 0 15px
@@ -207,11 +184,6 @@
         .skills
             &__grid
                 grid-template: repeat(7, 270px) / 270px
-            &__meter
-                grid-template: repeat(6, 70px) / 280px
-                row-gap: 50px
-                &-bar
-                    width: 280px
         .portfolio
             &__grid
                 grid-template: repeat(6, 280px) / 280px
@@ -219,13 +191,6 @@
                 .vertical, .horizontal
                     grid-row: unset
                     grid-column: unset
-        .price
-            &__grid
-                margin: 60px 10px 0 10px
-                display: grid
-                grid-template: repeat(6, 50px) / 300px
-                justify-content: center
-                row-gap: 25px
         .contacts
             &__grid
                 margin: 0 10px
