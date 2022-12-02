@@ -1,10 +1,6 @@
 import portfolio from "./components/portfolio.js";
 
 window.addEventListener('DOMContentLoaded', function() {
-    const theme = document.getElementsByTagName('link')[1]; 
-        theme.setAttribute('href', 'css/dark.min.css'); 
-        theme.setAttribute('href', 'css/light.min.css'); 
-        
     portfolio();
 });
 
@@ -100,27 +96,16 @@ scrolling(".pageup");
 
 const themeSwitch = document.querySelector(".switch");
 const ball = document.querySelector(".switch__ball");
-const containers = document.querySelectorAll(".container");
 
 themeSwitch.addEventListener("click", () => {
     ball.classList.toggle("switch__ball-up");
-    // containers.forEach(a => {
-    //     a.classList.toggle(".darkTheme");
-    // })
     toggleTheme()
 });
 
 function toggleTheme() { 
-    // Obtains an array of all <link> 
-    // elements. 
-    // Select your element using indexing. 
-    const theme = document.getElementsByTagName('link')[1]; 
-    
-    // Change the value of href attribute  
-    // to change the css sheet. 
-    if (theme.getAttribute('href') === 'css/light.min.css') { 
-        theme.setAttribute('href', 'css/dark.min.css'); 
-    } else { 
-        theme.setAttribute('href', 'css/light.min.css'); 
-    } 
+    const rootElem = document.documentElement;
+    let dataTheme = rootElem.getAttribute("data-theme");
+    let newTheme = (dataTheme === "light" ? "dark" : "light");
+
+    rootElem.setAttribute("data-theme", newTheme);
 } 

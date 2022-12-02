@@ -82,6 +82,10 @@ function portfolio() {
             }
         }, 3000);
 
+        document.querySelector(".slider__button").addEventListener("click", () => {
+            clearInterval(autoSlidesInt);
+        });
+
         portfolioProjects.forEach(a => {
             a.addEventListener("mouseenter", () => {
                 clearInterval(autoSlidesInt);   
@@ -164,6 +168,10 @@ function portfolio() {
     document.querySelector(".tiles__button").addEventListener("click", () => {
         document.querySelector(".portfolio__container").style.transform = `translateY(0px)`;
         document.querySelector(".portfolio").style.height = "930px";
+    });
+
+    document.querySelector(".tiles__button").addEventListener("click", () => {
+        autoSlides();
     });
 
     document.querySelectorAll(".tiles__card-inner").forEach(a => {
