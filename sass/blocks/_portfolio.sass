@@ -17,7 +17,7 @@
     .divider
         margin: 25px auto 0 auto
     &__container
-        transition: all .7s
+        transition: transform .7s
         position: relative
         z-index: 1
     &__header
@@ -42,7 +42,7 @@
         overflow: hidden
     &__headings-inner
         display: flex
-        transition: all .4s
+        transition: transform .4s
     &__heading
         cursor: pointer
         user-select: none
@@ -70,6 +70,9 @@
         text-align: center
         font-size: 28px
         padding-top: 20px
+    &__linkContainer
+        display: flex
+        justify-content: space-between
     &__link
         position: relative
         &::after
@@ -77,11 +80,13 @@
             content: ""
             background-image: url("/icons/external.png") 
             top: calc(50% - 10px)
+            right: -23px
             background-size: 18px 18px
             width: 18px
             height: 18px
         &:hover
             text-decoration: none
+            color: $main-color
     &__image
         width: 450px
         border: $main-color solid 10px
@@ -146,7 +151,7 @@
         &-inner
             display: grid
             grid-template: 261px / 261px 261px
-            transition: 1s all
+            transition: 1s transform
     &__image
         width: 261px
         height: 261px
@@ -171,9 +176,11 @@
             background-size: 14px 14px
             width: 14px
             height: 14px
-            top: calc(50% - 6px)
+            top: calc(50% - 8px)
+            right: -17px
         &:hover
             text-decoration: none
+            color: $main-color
         &-container
             display: flex
             justify-content: space-between
