@@ -9,13 +9,13 @@ function themes() {
         newTheme = "dark";
         rootElem.setAttribute("data-theme", newTheme);
         ball.forEach(a => {
-            a.classList.add("switch__ball-up")
+            a.classList.add("switch__ball-up");
         })
     } else {
         newTheme = "light";
         rootElem.setAttribute("data-theme", newTheme);
         ball.forEach(a => {
-            a.classList.remove("switch__ball-up")
+            a.classList.remove("switch__ball-up");
         })
     }    
 
