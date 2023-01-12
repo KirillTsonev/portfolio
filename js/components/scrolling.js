@@ -29,9 +29,9 @@ const scrolling = (selector) => {
                 if (start === null) {
                     start = time;
                 }
-
+                
                 let progress = time - start;
-                let r = (toBlock < 0 ? Math.max(widthTop - progress / speed, widthTop + toBlock) : Math.min(widthTop + progress / speed, widthTop + toBlock)) + 80;
+                let r = (toBlock < 0 ? Math.max(widthTop - progress / speed, widthTop + toBlock) : Math.min(widthTop + progress / speed, widthTop + toBlock));
 
                 document.documentElement.scrollTo(0, r);
 
@@ -41,8 +41,6 @@ const scrolling = (selector) => {
                     location.hash = hash;
                 }
             }
-
-            console.log(this.hash);
         });
     });
 };
