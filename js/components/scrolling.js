@@ -31,7 +31,7 @@ const scrolling = (selector) => {
                 }
 
                 let progress = time - start;
-                let r = (toBlock < 0 ? Math.max(widthTop - progress / speed, widthTop + toBlock) : Math.min(widthTop + progress / speed, widthTop + toBlock));
+                let r = (toBlock < 0 ? Math.max(widthTop - progress / speed, widthTop + toBlock) : Math.min(widthTop + progress / speed, widthTop + toBlock)) + 80;
 
                 document.documentElement.scrollTo(0, r);
 
